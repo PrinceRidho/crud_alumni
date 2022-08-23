@@ -36,10 +36,11 @@ class _ListPageState extends State<ListPage> {
   }
 
   void deleteMahasiswa(String nim, String foto) async {
-    var response = await http.post(ApiMahasiswa.URL_DELETE_MAHASISWA, body: {
+    var response =
+        await http.post(Uri.parse(ApiMahasiswa.URL_DELETE_MAHASISWA), body: {
       'nim': nim,
     });
-    await http.post(ApiMahasiswa.URL_DELETE_FOTO, body: {
+    await http.post(Uri.parse(ApiMahasiswa.URL_DELETE_FOTO), body: {
       'nama': foto,
     });
     if (response.statusCode == 200) {
@@ -127,7 +128,8 @@ class _ListPageState extends State<ListPage> {
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AddUpdateMahasiswaPage(type: 'Tambah'),
+            builder: (context) =>
+                AddUpdateMahasiswaPage(type: 'Tambah', mahasiswa: mahasiswa),
           ),
         ).then((value) => setState(() {})),
       ),
@@ -237,10 +239,10 @@ class _ListPageState extends State<ListPage> {
                           builder: (context) => AlertDialog(
                                 content: Text('Yakin untuk menghapus?'),
                                 actions: [
-                                  FlatButton(
+                                  TextButton(
                                       onPressed: () => Navigator.pop(context),
                                       child: Text('Tidak')),
-                                  FlatButton(
+                                  TextButton(
                                       onPressed: () =>
                                           Navigator.pop(context, 'ok'),
                                       child: Text('Ya')),
