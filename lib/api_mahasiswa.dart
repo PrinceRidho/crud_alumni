@@ -10,4 +10,5 @@ class ApiMahasiswa {
   static const URL_FOTO = "$_BASE_URL/foto";
   static const URL_CHECK_NIM = "$_BASE_URL/check_nim.php";
   static const URL_UPLOAD_FOTO = "$_BASE_URL/upload_foto.php";
+  static const URL_DELETE_FOTO = "$_BASE_URL/delete_foto.php";
 }
