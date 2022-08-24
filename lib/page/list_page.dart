@@ -87,7 +87,7 @@ class _ListPageState extends State<ListPage> {
           ),
         ],
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<List<Mahasiswa>>(
         future: getMahasiswa(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
@@ -106,7 +106,7 @@ class _ListPageState extends State<ListPage> {
             case ConnectionState.done:
               print('ConnectionState.done');
               if (snapshot.hasData) {
-                if (snapshot.data.length > 0) {
+                if (snapshot.data!.isNotEmpty) {
                   return buildList(snapshot.data);
                 } else {
                   return Center(child: Text('Tidak ada data'));
