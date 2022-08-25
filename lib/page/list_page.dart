@@ -106,8 +106,8 @@ class _ListPageState extends State<ListPage> {
             case ConnectionState.done:
               print('ConnectionState.done');
               if (snapshot.hasData) {
-                if (snapshot.data!.isNotEmpty) {
-                  return buildList(snapshot.data);
+                if (snapshot.data!.length > 0) {
+                  return buildList(snapshot.data!);
                 } else {
                   return Center(child: Text('Tidak ada data'));
                 }
@@ -128,8 +128,7 @@ class _ListPageState extends State<ListPage> {
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                AddUpdateMahasiswaPage(type: 'Tambah', mahasiswa: mahasiswa),
+            builder: (context) => AddUpdateMahasiswaPage(type: 'Tambah'),
           ),
         ).then((value) => setState(() {})),
       ),
