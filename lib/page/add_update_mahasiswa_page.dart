@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 
 class AddUpdateMahasiswaPage extends StatefulWidget {
-  final String type;
-  final Mahasiswa mahasiswa;
-  AddUpdateMahasiswaPage({required this.type, required this.mahasiswa});
+  final String? type;
+  final Mahasiswa? mahasiswa;
+  AddUpdateMahasiswaPage({this.type, this.mahasiswa});
   @override
   _AddUpdateMahasiswaPageState createState() => _AddUpdateMahasiswaPageState();
 }
@@ -139,12 +139,12 @@ class _AddUpdateMahasiswaPageState extends State<AddUpdateMahasiswaPage> {
   @override
   void initState() {
     if (widget.mahasiswa != null) {
-      _controllerNim.text = widget.mahasiswa.nim;
-      _controllerNama.text = widget.mahasiswa.nama;
-      _controllerJurusan.text = widget.mahasiswa.jurusan;
-      _controllerTanggalLahir.text = widget.mahasiswa.tanggalLahir;
-      _controllerAlamat.text = widget.mahasiswa.alamat;
-      _fotoSebelumUpdate = widget.mahasiswa.foto;
+      _controllerNim.text = widget.mahasiswa!.nim;
+      _controllerNama.text = widget.mahasiswa!.nama;
+      _controllerJurusan.text = widget.mahasiswa!.jurusan;
+      _controllerTanggalLahir.text = widget.mahasiswa!.tanggalLahir;
+      _controllerAlamat.text = widget.mahasiswa!.alamat;
+      _fotoSebelumUpdate = widget.mahasiswa!.foto;
     }
     super.initState();
   }
@@ -367,7 +367,7 @@ class _AddUpdateMahasiswaPageState extends State<AddUpdateMahasiswaPage> {
                             height: 150,
                           )
                         : Image.network(
-                            '${ApiMahasiswa.URL_FOTO}/${widget.mahasiswa.foto}',
+                            '${ApiMahasiswa.URL_FOTO}/${widget.mahasiswa!.foto}',
                             fit: BoxFit.cover,
                             width: 150,
                             height: 150,
