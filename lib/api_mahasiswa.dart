@@ -1,5 +1,5 @@
 class ApiMahasiswa {
-  static const _BASE_URL = 'http://192.168.100.5/api_mahasiswa';
+  static const _BASE_URL = 'http://192.168.100.7/api_mahasiswa';
   static const URL_LOGIN = '$_BASE_URL/login_admin.php';
   static const URL_REGISTER = '$_BASE_URL/register_admin.php';
   static const URL_GET_MAHASISWA = '$_BASE_URL/get_mahasiswa.php';
